@@ -1,0 +1,75 @@
+﻿<Window x:Class="Lottery.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        xmlns:local="clr-namespace:Lottery"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="693" Closed="Window_Closed">
+    <Window.Background>
+        <ImageBrush ImageSource="/в_IT_substrate_3.png" Stretch="UniformToFill"/>
+    </Window.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0"
+                    Grid.Row="1"
+                    Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Image gif:ImageBehavior.RepeatBehavior="Forever"
+                   gif:ImageBehavior.AnimatedSource="/Logo.gif"
+                   VerticalAlignment="Center"/>
+            <StackPanel Grid.Row="1"
+                        Grid.Column="1"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        DataContext="{Binding CurrentPerson}">
+                <TextBlock x:Name="txtFirstName"
+                       FontSize="40"
+                       Margin="0 0 10 0"
+                       Text="{Binding FirstName}"/>
+                <TextBlock x:Name="txtLastName"
+                       FontSize="40"
+                       Text="{Binding LastName}"/>
+
+            </StackPanel>
+
+
+            <UniformGrid x:Name="gridPersonRandom"
+                         Grid.Column="1"
+                         Rows="4"
+                         Columns="2"
+                         Visibility="Hidden">
+                
+            </UniformGrid>
+            
+
+        </Grid>
+        <Button x:Name="btnStart"
+                Grid.Row="2"
+                Width="200"
+                Height="50"
+                Background="Pink"
+                Foreground="Indigo"
+                FontSize="30"
+                FontWeight="Bold"
+                Content="СТАРТ"
+                IsDefault="True"
+                Click="btnStart_Click">
+            
+        </Button>
+
+    </Grid>
+</Window>
